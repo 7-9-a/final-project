@@ -1,18 +1,39 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 //import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Home from "./components/Home";
+import MyProfile from "./components/MyProfile";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header> */}
-        <h1 className="App-intro">
-          Here is where the front-end of our app will live
-        </h1>
+        <Router>
+          <div>
+            <ul>
+              <li className="navlink">
+                <Link to="/">Home</Link>
+              </li>
+              <li className="navlink">
+                <Link to="/myprofile">My Profile</Link>
+              </li>
+              <li className="navlink">
+                <Link to="/login">Log In</Link>
+              </li>
+              <li className="navlink">
+                <Link to="/signup">Sign Up</Link>
+              </li>
+            </ul>
+            <hr />
+            <Route exact path="/" component={Home} />
+            <Route path="/myprofile" component={MyProfile} />
+            <Route path="/login" component={Login} />
+            <Route path="/signup" component={SignUp} />
+          </div>
+        </Router>
       </div>
     );
   }
