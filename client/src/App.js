@@ -14,16 +14,16 @@ class App extends Component {
         <Router>
           <div>
             <ul>
-              <li>
+              <li className="navlink">
                 <Link to="/">Home</Link>
               </li>
-              <li>
+              <li className="navlink">
                 <Link to="/myprofile">My Profile</Link>
               </li>
-              <li>
+              <li className="navlink">
                 <Link to="/login">Log In</Link>
               </li>
-              <li>
+              <li className="navlink">
                 <Link to="/signup">Sign Up</Link>
               </li>
             </ul>
