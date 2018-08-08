@@ -1,40 +1,28 @@
 import React, { Component } from "react";
-//import logo from './logo.svg';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
+import Landing from "./components/layout/Landing";
+import Register from "./components/auth/Register";
+import Login from "./components/auth/Login";
+
 import "./App.css";
-import Home from "./components/Home";
-import MyProfile from "./components/MyProfile";
-import Login from "./components/Login";
-import SignUp from "./components/SignUp";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Router>
-          <div>
-            <ul>
-              <li className="navlink">
-                <Link to="/">Home</Link>
-              </li>
-              <li className="navlink">
-                <Link to="/myprofile">My Profile</Link>
-              </li>
-              <li className="navlink">
-                <Link to="/login">Log In</Link>
-              </li>
-              <li className="navlink">
-                <Link to="/signup">Sign Up</Link>
-              </li>
-            </ul>
-            <hr />
-            <Route exact path="/" component={Home} />
-            <Route path="/myprofile" component={MyProfile} />
-            <Route path="/login" component={Login} />
-            <Route path="/signup" component={SignUp} />
+      <Router>
+        <div className="App">
+          <Navbar />
+          <Route exact path="/" component={Landing} />
+          <div className="container">
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/login" component={Login} />
           </div>
-        </Router>
-      </div>
+          <Footer />
+        </div>
+      </Router>
     );
   }
 }
