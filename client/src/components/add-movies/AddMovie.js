@@ -45,7 +45,6 @@ class AddMovie extends Component {
       stars: this.state.stars,
       review: this.state.review
     };
-
     this.props.addMovie(movData, this.props.history);
   }
 
