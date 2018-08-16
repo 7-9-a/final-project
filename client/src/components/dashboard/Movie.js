@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Moment from "react-moment";
-import { deleteMovie } from "../../actions/profileActions";
+import { getCurrentProfile, deleteMovie } from "../../actions/profileActions";
 
 class Movie extends Component {
   onDeleteClick(id) {
     this.props.deleteMovie(id);
+    this.props.getCurrentProfile();
   }
 
   render() {
@@ -31,13 +32,15 @@ class Movie extends Component {
       <div>
         <h4 className="mb-4">Movies</h4>
         <table className="table">
-          <tr>
-            <th>Title</th>
-            <th>Director</th>
-            <th>Released</th>
-            <th />
-          </tr>
-          {movie}
+          <tbody>
+            <tr>
+              <th>Title</th>
+              <th>Director</th>
+              <th>Released</th>
+              <th />
+            </tr>
+            {movie}
+          </tbody>
         </table>
       </div>
     );
@@ -50,5 +53,5 @@ Movie.propTypes = {
 
 export default connect(
   null,
-  { deleteMovie }
+  { deleteMovie, getCurrentProfile }
 )(Movie);

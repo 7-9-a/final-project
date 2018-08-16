@@ -33,14 +33,11 @@ const ProfileSchema = mongoose.Schema({
         required: true
       },
       yearofrelease: {
-        type: Date,
+        type: String,
         required: true
       },
       genre: {
         type: String
-      },
-      cast: {
-        type: [String]
       },
       plotsummary: {
         type: String
